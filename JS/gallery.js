@@ -91,3 +91,26 @@ document.querySelector('.gallery').addEventListener('click', (event) => {
   console.log(event.target.dataset.source);
 });
 
+document.querySelector('.gallery').addEventListener('click', (event) => {
+  event.preventDefault();
+
+  if (event.target.nodeName !== 'IMG') {
+    return;
+  }
+
+  
+  const largeImageURL = event.target.dataset.source;
+
+  
+  const instance = basicLightbox.create(`
+    <img src="${largeImageURL}" width="800" height="600">
+  `);
+  instance.show();
+
+    window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        instance.close();
+        window.removeEventListener('keydown', (event));
+    }
+  });
+});
