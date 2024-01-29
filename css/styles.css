@@ -18,11 +18,19 @@ body {
 
 .gallery-item {
   list-style: none;
-  width: 360px;
-  margin: 8px;
+
+  margin-right: 24px;
+  margin-bottom: 24px;
 }
 
 .gallery-image {
-  max-width: 100%;
+  width: 360px;
   height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+  transition: transform 0.5s;
+}
+
+.gallery-image:hover {
+  transform: scale(1.1);
 }
