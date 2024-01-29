@@ -64,6 +64,7 @@ const images = [
   },
 ];
 
+
 function createGalleryMarkup(images) {
   return images.map(({ preview, original, description }) => `
     <li class="gallery-item">
