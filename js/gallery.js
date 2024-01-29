@@ -107,10 +107,19 @@ document.querySelector('.gallery').addEventListener('click', (event) => {
   `);
   instance.show();
 
-    window.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-        instance.close();
-        window.removeEventListener('keydown', (event));
-    }
-  });
+  //   window.addEventListener('keydown', (event) => {
+  //   if (event.key === 'Escape') {
+  //       instance.close();
+  //       window.removeEventListener('keydown', (event));
+  //   }
+  // });
+const handleEscapeKeyPress = (event) => {
+  if (event.key === 'Escape') {
+    instance.close();
+    window.removeEventListener('keydown', handleEscapeKeyPress);
+  }
+};
+window.addEventListener('keydown', handleEscapeKeyPress);
 });
+
+
